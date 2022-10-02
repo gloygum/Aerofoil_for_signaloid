@@ -1,5 +1,3 @@
-WXgKEfgCjiMI
-
 /*
     Example to investigate correlation between two random variables, one of which
     is linearly dependent on the other, using  Signaloid unvertain lib.
