@@ -6,4 +6,4 @@ Construct dependent random variable $Y=\frac{1}{2}(X+Z)$.
 
 Look at the correlation function
 
-$$\rho(p,p') = \frac{\langle pp' \rangle -\langle p \rangle\langle p' \rangle}{\sqrt{(\langle p^2 \rangle -\langle p \rangle^2)(\langle {p'}^2 \rangle -\langle p' \rangle^2)}}.$$
+$$\rho(X,Y) = \frac{\langle XY \rangle -\langle X \rangle\langle Y \rangle}{\sqrt{(\langle X^2 \rangle -\langle X \rangle^2)(\langle {Y}^2 \rangle -\langle Y \rangle^2)}}.$$
