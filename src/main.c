@@ -1,5 +1,3 @@
-herIYXrrKyUr
-
 /*
  * Aerofoil lift with Signaloid uncertainties
  * Clive Emary 02-10-2022
