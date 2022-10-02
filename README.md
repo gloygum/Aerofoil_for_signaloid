@@ -8,12 +8,7 @@ The equations used here are valid for subsonic, compressible flow with a thin ae
 ## Pitot tube & pressure measurements
 
 The relationship between Mach number $M$ and Pitot-tube pressures at subsonic speeds reads (p. 603[^1])
-```math
-  \qquad\qquad\qquad\qquad\qquad
-  M^2 = \frac{2}{\gamma-1}\left[\left(\frac{p'}{p}\right)^{(\gamma-1)/\gamma} - 1\right]
-  \qquad\qquad\qquad\qquad\qquad
-  (1)
-```
+$$\qquad\qquad\qquad\qquad\qquad M^2 = \frac{2}{\gamma-1}\left[\left(\frac{p'}{p}\right)^{(\gamma-1)/\gamma} - 1\right] \qquad\qquad\qquad\qquad\qquad(1)$$
 where $p$ is the static pressure, $p'$ the total pressure in the Pitot tube, and $\gamma$ the specific heat ratio of the air.
 
 Uncertainties in the pressures come from two sources: (1) variations, both spatial and temporal, of the airflow; and (2) detector uncertainty. We thus conceptualise the static pressure $p$ as a random variable $p = X_p + X_{\text{det}}$ in which $X_p$ is a Gaussian random variable $X_p \sim \mathcal{N}(\bar{p}, \sigma_p)$ that describes pressure fluctuations, and $X_{\text{det}}$ is a second, indepedent Gaussian random variable $X_{\text{det}}\sim \mathcal{N}(0, \sigma_{\text{det}})$ that describes measurement uncertainty.
@@ -27,19 +22,8 @@ We specify the value of the Pitot pressure as  $\bar{p}' = \bar{p} + f_p (p_\tex
 
 ## Lift
 
-
 Once in possession of the Mach number, we can calculate the Lift. Assuming that the aerofoil is thin, that the angle of attack is small and that the flow is subsonic, the lift can be described by the Kutta–Joukowski theorem modified with the Prandtl-Glauert correction to incorporate the compressibility of the air (p. 739[^1]).  Within this frameworkm the lift per unit span is given by
-```math
-  L'
-  =
-  \left[
-    c \pi  \alpha
-  \right]
-  \cdot
-  \left[
-    \frac{\gamma p_\infty M_\infty^2}{\sqrt{1-M^2_\infty}}
-  \right]
-```
+$$L'= \frac{\pi  \gamma  c  \alpha p M^2}{\sqrt{1-M^2}}$$
 The new quantities introduced in this equation are $c$, the chord length of aerofoil, and  $\alpha$, the angle of attack as referenced to zero lift condition. As uncertainty model for these quantities we take $\alpha \sim \mathcal{N}(\bar{\alpha},\sigma_\alpha)$ and, since we find uncertainy for the chord length specified as a tolerance, we take $c \sim \mathcal{U}(\bar{c}-\Delta c,\bar{c} + \Delta c )$, i.e. from a uniform distribution.
 
 # Input
@@ -62,7 +46,7 @@ Input quantities and numerical values from the literature.
 
 # Output
 
-The code performs a loop over pressure fraction $f_p$ and outputs results to the file `liftdata/lift.csv` (NB: data storage needs to be mounted as `liftdata` before running).  The output file is in CSV format and for onward processing should be cleared of distributional data with `"sed -E 's/Ux[[:alnum:]]*//g' lift.csv | tee lift2.csv\n"`.  The columns in the data are
+The code performs a loop over pressure fraction $f_p$ and outputs results to the file `liftdata/lift.csv` (NB: data storage needs to be mounted as `liftdata` before running).  The output file is in CSV format and for onward processing should be cleared of distributional data with `sed -E 's/Ux[[:alnum:]]*//g' lift.csv | tee lift2.csv\n`.  The columns in the data are
 
 | $f_p$ | $\bar{M}$ | $\bar{M}-\Delta M$ | $\bar{M} + \Delta M$ | $\bar{L}$ | $\bar{L}-\Delta L$ | $\bar{L}+\Delta L$ |
 | :---:| :---:| :---:|:---:|:---:| :---:|:---:|
