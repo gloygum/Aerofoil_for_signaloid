@@ -28,7 +28,9 @@ main(int argc, char *	argv[])
    	// y in a linear combination of x and z
 	double y = x+z;
 	
-	printf("x and z and independent random vairables. y =(x+z)/2\n");
+	printf("x and z and independent random vairables. y =(x+z)/2\n\n");
+	
+	printf("1st method \n");
 
    	// examine distribution of y
 	printf("Distribution of y:\n");
@@ -47,16 +49,18 @@ main(int argc, char *	argv[])
 	y = x+z;
 
 	// CE comment
-	printf("\n\n2nd method --- gives the same as before \n");
+	printf("\n\n2nd method \n");
 	printf("y = %.2E \n",y);
 	libUncertainDoublePrint(y);
 	printf("Correlation rho(x,y) = %.2f\n",correlation(x,y));
+	
+	printf("Also not correct \n");
 
 
 
 
 	// evaluate the pieces by hand
-	printf("\nIf I decompose the correlation function by hand and evaluate the bits individually, I get\n");
+	printf("If I decompose the correlation function by hand and evaluate the bits individually, I get\n");
 	// numerator = <xy> - <x><y>
 	double numerator = 0.5*libUncertainDoubleNthMoment(x*x,1) + 0.5*libUncertainDoubleNthMoment(x*z,1)
 		- libUncertainDoubleNthMoment(x,1)*0.5*(libUncertainDoubleNthMoment(x,1)+libUncertainDoubleNthMoment(z,1));
@@ -67,7 +71,7 @@ main(int argc, char *	argv[])
 			    );
 	//CE comment
 	printf("   rho(x,y) = %.02f\n",numerator/denominator);
-	printf("This is the correct answer....");
+	printf("This gives the correct answer when run on a core with autocorrelation tracking....");
 
 	return 0;
 }
