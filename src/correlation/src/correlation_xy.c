@@ -54,7 +54,7 @@ main(int argc, char *	argv[])
 	libUncertainDoublePrint(y);
 	printf("Correlation rho(x,y) = %.2f\n",correlation(x,y));
 	
-	printf("Also not correct \n");
+	printf("Also not correct \n\n");
 
 
 
