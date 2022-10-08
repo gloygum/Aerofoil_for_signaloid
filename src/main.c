@@ -75,7 +75,7 @@ main(int argc, char *	argv[])
 
 	//  Loop over values of pressure_fraction
 	printf("Looping over pressure fraction...\n\n");
-	if (verbose = 0)
+	if (verbose == 0)
 	{
 		printf("\n...\nSkipping printing loop output to stdout. Run with verbose = 1 to see it.\n...\n")
 	}
