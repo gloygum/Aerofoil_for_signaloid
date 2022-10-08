@@ -28,10 +28,10 @@ main(int argc, char *	argv[])
    	// y in a linear combination of x and z
 	double y = x+z;
 	
-	printf("x and z and independent random vairables. y =(x+z)/2\n);
+	printf("x and z and independent random vairables. y =(x+z)/2\n");
 
    	// examine distribution of y
-	printf("Distribution of y:\n);
+	printf("Distribution of y:\n");
 	printf("y = %.2E \n",y);
 	libUncertainDoublePrint(y);
 
